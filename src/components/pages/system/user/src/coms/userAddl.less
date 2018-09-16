@@ -1,0 +1,124 @@
+/**
+ *Create by:2018/5/22.
+ *Author:songzhikuan.
+ */
+@import "../../../../../../style/fontsize";
+@import "../../../../../../style/color";
+.inner_UserAddl_container{
+  .pageHeader{
+    width: 100%;
+    background: #FFFFFF;
+    color: @baseColor;
+    div:first-child{
+      margin: 2px 24px 0px;
+      padding: 16px 0;
+      font-size: @font14;
+    }
+    div:last-child{
+      margin: -16px 24px 0px;
+      padding: 16px 0;
+      font-size: @font18;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      a{
+        margin-left: 24px;
+      }
+    }
+  }
+  .content{
+    min-height: 300px;
+    background: #FFFFFF;
+    padding: 30px 30px;
+    margin: 24px;
+    .portrait_con{
+      display: flex;
+      align-items: center;
+      .portrait{
+        width: 6.666666666666667vw;
+        height: 6.666666666666667vw;
+        div{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          width: 100%;
+          height: 100%;
+          border: 1px dashed gray;
+          font-size: 40px;
+        }
+        img{
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+      .por_handle{
+        margin-left: 30px;
+        .xiugai{
+          border: 1px dashed gray;
+          font-size: 14px;
+        }
+      }
+      .por_file{
+        input{
+          display: none;
+        }
+      }
+    }
+    .user_info{
+      margin-left: 218px;
+      //background: lightpink;
+      .handle:last-child{
+        color: #FFFFFF;
+        background: rgb(200,54,54);
+        &:hover{
+          color: #FFFFFF;
+          background: rgb(200,54,54);
+        }
+      }
+    }
+    .handler_con{
+      margin-left: 268px;
+      margin-top: 30px;
+    }
+    .handler:last-child{
+      color: #FFFFFF;
+      background: rgb(200,54,54);
+      &:hover{
+        color: #FFFFFF;
+        background: rgb(200,54,54);
+      }
+    }
+    .handler:first-child{
+      color: #FFFFFF;
+      background: #1890ff;
+      margin-right: 30px;
+      &:hover{
+        color: #FFFFFF;
+        background: #1890ff;
+      }
+    }
+  }
+}
+body .inner_UserAddl_container :global(.ant-form){
+  width:360px;
+}
+body .inner_UserAddl_container :global(.ant-form-item-label){
+  text-align: right;
+  font-size: @font18;
+  font-weight: 500;
+}
+
+body .inner_UserAddl_container :global(.ant-input){
+  height:26px !important;
+}
+
+
+body .inner_UserAddl_container :global(.ant-select-selection--single){
+  height:26px !important;
+}
+body .inner_UserAddl_container :global(.ant-select-selection__rendered){
+  line-height: 26px !important;
+}
+

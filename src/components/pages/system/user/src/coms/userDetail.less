@@ -1,0 +1,64 @@
+/**
+ *Create by:2018/5/22.
+ *Author:songzhikuan.
+ */
+@import "../../../../../../style/fontsize";
+@import "../../../../../../style/color";
+.inner_UserDetail_container{
+  .pageHeader{
+    width: 100%;
+    background: #FFFFFF;
+    color: @baseColor;
+    div:first-child{
+      margin: 2px 24px 0;
+      padding: 16px 0;
+      font-size: @font14;
+    }
+    div:last-child{
+      margin: -16px 24px 0;
+      padding: 16px 0;
+      font-size: @font18;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      a{
+        margin-left: 24px;
+      }
+    }
+  }
+  .content{
+    min-height: 300px;
+    background: #FFFFFF;
+    padding: 30px 30px;
+    margin: 24px;
+    .portrait{
+      img{
+        border-radius: 10px;
+        max-width: 6.666666666666667vw;
+        max-height: 6.666666666666667vw;;
+      }
+    }
+    .user_info{
+      margin-left: 218px;
+      display: flex;
+      .label_key div{
+        margin-top: 2.407407407407407vh;
+      }
+      .label_key div label:first-child{
+        display: inline-block;
+        width: 165px;
+        color: @baseColor;
+        font-size: @font18;
+        font-weight: 600;
+      }
+      .label_key div label:last-child{
+        margin-left: 40px;
+        font-size: @font14;
+      }
+      .label_value div label{
+        margin-left: 40px;
+        font-size: @font14;
+      }
+    }
+  }
+}

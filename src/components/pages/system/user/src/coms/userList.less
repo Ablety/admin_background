@@ -1,0 +1,97 @@
+/**
+ *Create by:2018/5/22.
+ *Author:songzhikuan.
+ */
+@import '../../../../../../style/fontsize';
+
+.inner_UserList_container{
+  height: 100%;
+  .pageHeader{
+    width: 100%;
+    background: #FFFFFF;
+    div{
+      margin: 2px 24px 0;
+      padding: 16px 0;
+      font-size: @font14;
+    }
+  }
+  .page_content{
+    margin: 24px;
+    background: #FFFFFF;
+    min-height: 300px;
+    padding: 28px 34px;
+    .page_title{
+      font-size: @font16;
+      color: #050505;
+      font-weight: 700;
+    }
+    .page_search{
+      margin-top: 28px;
+      .check{
+        margin-left: 20px;
+      }
+    }
+    .page_handle{
+      margin-top: 20px;
+      .handle{
+        margin-right: 30px;
+      }
+      .handle:last-child{
+        background: rgb(200,54,54);
+        &:hover{
+          background: rgb(200,54,54);
+        }
+      }
+      .handle:first-child{
+        background: #1890ff;
+        &:hover{
+          background: #1890ff;
+        }
+      }
+    }
+    .page_table{
+      margin-top: 20px;
+    }
+  }
+}
+.back_user{
+  color: #404040;
+  font-size: @font14;
+
+}
+body .inner_UserList_container :global(.ant-input){
+  height:26px !important;
+}
+
+body .inner_UserList_container :global(.ant-btn ){
+
+  height:26px !important;
+  color: #feffff;
+  background: #1890ff;
+  &:hover{
+    background: #1890ff;
+    color: #FBF8FF;
+  }
+}
+body .inner_UserList_container :global(.ant-table-thead  tr th){
+  text-align: center;
+  background: rgb(250,250,250);
+  color: #404040;
+  font-size: @font14;
+  font-weight: 700;
+}
+body .inner_UserList_container :global(.ant-table-row){
+  &:hover{
+    background: none !important;
+  }
+}
+
+body .inner_UserList_container :global(.ant-table-tbody  tr:hover  td){
+  background:none;
+  text-align: center;
+}
+
+body .inner_UserList_container :global(.ant-table-tbody  tr td){
+  background:none;
+  text-align: center;
+}
