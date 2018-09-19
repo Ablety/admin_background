@@ -21,7 +21,7 @@ const mapStateToProps = state => {
 export default class HomePage extends React.Component {
 
     render() {
-        const {screenData,...props} = this.props;
+        const {...props} = this.props;
         const defaultStyle = {
             // height:screenData.screenHeight,
         };

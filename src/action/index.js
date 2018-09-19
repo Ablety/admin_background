@@ -2,7 +2,7 @@
  * Created by songzhikuan on 2018/7/17.
  */
 import * as type from './type';
-import * as http from '../axios/myindex';
+import * as http from '../axios/index';
 
 const requestData = category => ({
     type: type.REQUEST_DATA,

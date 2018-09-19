@@ -3,7 +3,7 @@
  *Author:songzhikuan
  */
 
-export const HandType={
+export const Type={
     ADD:100,
     DEL:101,
     BATCH_DEL:102,
@@ -11,4 +11,4 @@ export const HandType={
     LOOK:104,
     GROUP:105,
     CHECK:106,
-}
+};

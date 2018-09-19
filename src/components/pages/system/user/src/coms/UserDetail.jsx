@@ -6,9 +6,9 @@ import React from 'react';
 import './userDetail.less';
 import portrait from '@/style/imgs/defaultPortrait.svg';
 import return_icon from '@/style/imgs/return_icon.png';
-import {dateFormat} from "utils";
 import {ADMIN_ADDRESS} from "@/axios/config";
 import FetchHoc from "@hoc/fetch/FetchHoc";
+import {dateFormat} from "utils";
 
 @FetchHoc({fetchUrl:'userInfo',flag:'userDetail'})
 class UserDetail extends React.Component {

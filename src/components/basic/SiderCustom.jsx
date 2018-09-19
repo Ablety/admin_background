@@ -4,10 +4,10 @@
 import React, {Component} from 'react';
 import {Layout} from 'antd';
 import {withRouter} from 'react-router-dom';
-import {menus} from '../../constants/menus';
 import SiderMenu from './SiderMenu';
 import './siderCustom.less';
 import backIcon from '../../style/imgs/backIcon.svg';
+import {menus, SIDE_MENU_WIDTH} from "../../constants";
 
 const { Sider } = Layout;
 
@@ -58,14 +58,15 @@ class SiderCustom extends Component {
         })
     };
     render() {
+        const {className}=this.props;
         return (
             <Sider
-                className='leftSider'
+                className = {"leftSider "+className}
                 trigger={null}
                 breakpoint="lg"
                 collapsed={this.props.collapsed}
                 style={{ overflowY: 'auto'}}
-                width={256}
+                width={SIDE_MENU_WIDTH}
             >
                 <div className="logo_new" >
                     <img src={backIcon} style={{width:'32px',height:'32px'}}/>

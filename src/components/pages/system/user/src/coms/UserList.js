@@ -4,11 +4,10 @@
  */
 import React from 'react';
 import {Button, Input, Popconfirm, Table} from 'antd';
-import {columns as Columns, dataSource as DataSource} from 'constants/user';
 
 import './userList.less';
-import {HandType} from "utils/type";
-import {dateFormat} from "utils";
+import {columns as Columns, dataSource as DataSource} from "constants/user";
+import {dateFormat, HandType} from "utils";
 import ListHoc from "@hoc/list/ListHoc";
 import * as Type from "@hoc/type";
 
@@ -56,12 +55,14 @@ class UserList extends React.Component {
                                     title: '修改'
                                 }, {icon: 'delete', type: HandType.DEL, title: '删除'}].map((value, index) => {
                                     return value.type === HandType.DEL ?
-                                        <Popconfirm key={'operation_user_' + index} title="确定删除?" okText='确定' cancelText='取消'
-                                                    onConfirm={() => this.handle(value.type, record.id)}>
+                                        <Popconfirm key={'operation_user_' + index} title="确定删除?" okText="确定" cancelText="取消"
+                                                    onConfirm={() => this.handle(value.type, record.id)}
+                                        >
                                             <a href="#" style={comStyle}>{value.title}</a>
                                         </Popconfirm> :
                                         <a onClick={() => this.handle(value.type, record.id)} style={comStyle}
-                                           key={'operation_user_' + index}>
+                                           key={'operation_user_' + index}
+                                        >
                                             {value.title}
                                         </a>
                                 })}
@@ -151,34 +152,36 @@ class UserList extends React.Component {
                         </span>
                     </div>
                 </div>
-                <div className='page_content'>
-                    <div className='page_title'><span>用户列表</span></div>
-                    <div className='page_search'>
+                <div className="page_content">
+                    <div className="page_title"><span>用户列表</span></div>
+                    <div className="page_search">
                         <Search
                             placeholder="输入关键字搜索"
                             onSearch={value => this.select(value)}
-                            size='small'
+                            size="small"
                             enterButton
                             style={{width: 270}}
                         />
                         {/*<Button className='check' onClick={this.select}>查询</Button>*/}
                     </div>
-                    <div className='page_handle'>
+                    <div className="page_handle">
                         {[{type: HandType.ADD, title: '新增'}, {
                             type: HandType.BATCH_DEL,
                             title: '批量删除'
                         }].map((value, index) => {
                             let com = value.type === HandType.BATCH_DEL ?
-                                <Popconfirm key={'operation_user_' + index} title="确定删除?" okText='确定' cancelText='取消' onConfirm={(e) => {
+                                <Popconfirm key={'operation_user_' + index} title="确定删除?" okText="确定" cancelText="取消" onConfirm={(e) => {
                                     e.preventDefault();
                                     this.handle(value.type, selectedRowKeys)
-                                }} key={`page_handle_${index}`}>
-                                    <Button className='handle'>{value.title}</Button>
+                                }} key={`page_handle_${index}`}
+                                >
+                                    <Button className="handle">{value.title}</Button>
                                 </Popconfirm>
-                                : <Button className='handle' onClick={(e) => {
+                                : <Button className="handle" onClick={(e) => {
                                     e.preventDefault();
                                     this.handle(value.type, selectedRowKeys)
-                                }} key={`page_handle_${index}`}>{value.title}</Button>
+                                }} key={`page_handle_${index}`}
+                                  >{value.title}</Button>
                             if (index == 1 && (selectedRows == null || selectedRows != null && selectedRows.length <= 0)) {
                                 com = null
                             }
@@ -198,8 +201,7 @@ class UserList extends React.Component {
                                              loading={listData.loading}
                                              className="user_list"
                                              rowSelection={this.rowSelection}
-
-                            />
+                                      />
                         }
                     </div>
                 </div>
