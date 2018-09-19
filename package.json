@@ -7,7 +7,9 @@
     "antd": "^3.6.4",
     "autoprefixer": "7.1.1",
     "axios": "^0.18.0",
+    "dayjs": "^1.7.5",
     "fs-extra": "3.0.1",
+    "history": "^4.7.2",
     "object-assign": "4.1.1",
     "promise": "7.1.1",
     "qs": "^6.5.2",
@@ -62,7 +64,6 @@
     "webpack-dev-server": "2.5.0",
     "webpack-manifest-plugin": "1.1.0"
   },
-
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
     "start": "node scripts/start.js",
