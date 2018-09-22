@@ -54,7 +54,15 @@ function getSeconds(date) {
     }
     return second;
 }
-
+/**
+*
+*@Title: dateFormatToSimple
+*@Params: longTypeDate,时间戳
+*@Description: 返回形如1992-12-02的日期
+*@Author: songzhikuan
+*@Date: 2018/9/22
+*@return
+*/
 export const dateFormatToSimple = (longTypeDate) => {
     let dateType = "";
     let date = new Date();
@@ -64,7 +72,15 @@ export const dateFormatToSimple = (longTypeDate) => {
     dateType += "-" + getDay(date);  //日
     return dateType;
 };
-
+/**
+*
+*@Title: dateFormat
+*@Params: longTypeDate,时间戳
+*@Description: 返回形如1992-12-02 13:08:49的日期
+*@Author: songzhikuan
+*@Date: 2018/9/22
+*@return
+*/
 export const dateFormat = (longTypeDate) => {
     let datetimeType = "";
     let date = new Date();
@@ -74,14 +90,22 @@ export const dateFormat = (longTypeDate) => {
     datetimeType += "-" + getDay(date);  //日
     datetimeType += "  " + getHours(date);  //时
     datetimeType += ":" + getMinutes(date);   //分
-    datetimeType += ":" + getSeconds(date);   //分
+    datetimeType += ":" + getSeconds(date);   //秒
     return datetimeType;
 };
 
-
-export const dateFormatHourAndMinute =(date)=> {
+/**
+*
+*@Title: dateFormatHourAndMinute
+*@Params: longTypeDate,时间戳
+*@Description: 返回形如13:09的时间
+*@Author: songzhikuan
+*@Date: 2018/9/22
+*@return
+*/
+export const dateFormatHourAndMinute =(longTypeDate)=> {
     let newDate = new Date();
-    newDate.setTime(date);
+    newDate.setTime(longTypeDate);
     return getHours(newDate)+":"+getMinutes(newDate);
 };
 

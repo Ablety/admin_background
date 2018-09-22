@@ -18,6 +18,7 @@ export default class CRouter extends Component {
                 <Route exact path="/admin/system/userDetail/:id" component={UserDetail} />
                 <Route exact path="/admin/system/userDdd" component={UserAddl} />
                 <Route exact path="/admin/system/userModify/:id" component={UserModify} />
+
                 <Route render={() => <Redirect to="/404" />} />
             </Switch>
         )

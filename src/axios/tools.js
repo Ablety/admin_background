@@ -5,6 +5,26 @@ import axios from 'axios';
 import Qs from 'qs'
 import {ADMIN_ADDRESS} from './config';
 import {createHashHistory} from 'history';
+import {checkBrowser} from "../utils";
+
+axios.interceptors.request.use(
+    config => {
+        const browser = checkBrowser();//判断是否为ie9
+        const ie9 = browser.type === 'IE' && browser.version === 9;
+        if(ie9){
+            if (config.url.indexOf('?') > 0) {
+                config.url = config.url + "&token=" + config.headers.authorization ;
+            }
+            else {
+                config.url = config.url + "?token=" + config.headers.authorization;
+            }
+            if(config.headers['Content-Type']){
+                config.url += `&contentType=${config.headers['Content-Type']}`;
+            }
+        }
+        return config;
+    }
+);
 //http response 封装后台返回拦截器
 axios.interceptors.response.use(
     response => {

@@ -1,3 +1,4 @@
+'use strict';
 
 const path = require('path');
 const fs = require('fs');
@@ -9,7 +10,7 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
-// console.log(resolveApp('src'))
+
 function ensureSlash(path, needsSlash) {
   const hasSlash = path.endsWith('/');
   if (hasSlash && !needsSlash) {
@@ -51,5 +52,4 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  vendorConfig: resolveApp('config/vendor.config.js')
 };

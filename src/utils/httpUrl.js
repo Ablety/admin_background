@@ -2,8 +2,15 @@
  *Created by 2018/9/19
  *Author:songzhikuan
  */
-
-// 获取url的参数
+/**
+*
+*@Title: httpUrl
+*@Params:
+*@Description: 获取url的参数
+*@Author: songzhikuan
+*@Date: 2018/9/22
+*@return
+*/
 const httpUrl = () => {
     let _queryString = {};
     const _query = window.location.search.substr(1);

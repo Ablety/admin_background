@@ -18,14 +18,9 @@ const {Content, Footer} = Layout;
 
 const mapStateToProps = state => {
     const {auth = {data: {}}, responsive = {data: {}}} = state.httpData;
-    const {screenWidth, screenHeight} = state.screenData;
     return {
         auth,
         responsive,
-        screenSize: {
-            screenWidth,
-            screenHeight
-        }
     };
 };
 const mapDispatchToProps = dispatch => ({
@@ -52,8 +47,8 @@ export default class App extends Component {
     componentDidMount() {
 
     }
-
-    getClientWidth = () => {    // 获取当前浏览器宽度并设置responsive管理响应式
+    // 获取当前浏览器宽度并设置responsive管理响应式
+    getClientWidth = () => {
         const {receiveData, screenData} = this.props;
         const {clientWidth, clientHeight} = document.body;
         // console.log(clientWidth,clientHeight);
@@ -71,11 +66,16 @@ export default class App extends Component {
 
     render() {
 
-        const {auth, responsive,screenSize} = this.props;
+        const {auth, responsive} = this.props;
         const {year} = this.state;
-        const sideMenuWrap = checkBrowser() && {className: 'box_style'};
-        const contentWrap = checkBrowser() && {className: 'box_style', style:{width:screenSize.screenWidth-SIDE_MENU_WIDTH}};
-        const footerWrap = checkBrowser() && {className: 'footer_style'};
+        const {clientWidth,clientHeight} = document.body;//直接获取，不从props中screenData取值，因为props中值更新的时候render已经被执行了ie9会报错，后面会考虑是否screenData全局变量是否还有存在的必要
+        /*增加ie9样式 start */
+        const browser = checkBrowser();//判断是否为ie9
+        const ie9 = browser.type === 'IE' && browser.version === 9;
+        const sideMenuWrap = ie9 && {className: 'box_style'};
+        const contentWrap = ie9 && {className: 'box_style', style:{width:clientWidth - SIDE_MENU_WIDTH}};
+        const footerWrap = ie9 && {className: 'footer_style'};
+        /*增加ie9样式 end */
         return (
             <Layout>
                 {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} className={sideMenuWrap&&sideMenuWrap.className} />}
@@ -88,7 +88,7 @@ export default class App extends Component {
                     </Content>
                     <Footer style={{textAlign: 'center'}} className={footerWrap&&footerWrap.className}>
                         {
-                            ` Admin ©${year} Created by 850993286@qq.com`
+                            ` Admin ©${year} eeeffff Created by 850993286@qq.com`
                         }
                     </Footer>
                 </Layout>
@@ -97,7 +97,7 @@ export default class App extends Component {
                         `
                             .box_style{
                                 float:left;
-                                height:${screenSize.screenHeight}px;
+                                height:${clientHeight}px;
                                 -webkit-box-sizing: border-box;/*浏览器前缀，兼容其他浏览器 chrome,safari*/
                                    -moz-box-sizing: border-box;/*firefox*/
                                     -ms-box-sizing: border-box;/*ie*/
@@ -111,7 +111,6 @@ export default class App extends Component {
                                 right:0;
                             }
                         `
-
                     }
                 </style>
 
